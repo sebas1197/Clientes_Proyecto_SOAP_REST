@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://espe.edu.ec/arqsoftware/soap/activotarjeta/ws"
+           targetNamespace="http://espe.edu.ec/arqsoftware/soap/activotarjeta/ws" elementFormDefault="qualified">
+    
+    <xs:element name="obtenerTodasRequest">
+        <xs:complexType>
+            
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="obtenerTodasResponse" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tarjetaActivoRS" type="tns:tarjetaActivoRS" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+ 
+    <xs:complexType name="tarjetaActivoRS">
+        <xs:sequence>
+            <xs:element name="codTarjetaCliente" type="xs:string"/>
+            <xs:element name="codTarjetaCredito" type="xs:string"/>
+            <xs:element name="codCliente" type="xs:string"/>
+            <xs:element name="emisor" type="xs:string"/>
+            <xs:element name="estado" type="xs:string"/>
+            <xs:element name="numeroTarjeta" type="xs:string"/>
+            <xs:element name="cupoDisponible" type="xs:decimal"/>
+            <xs:element name="cupoTotal" type="xs:decimal"/>
+            <xs:element name="fechaExpedicion" type="xs:dateTime"/>
+            <xs:element name="fechaExpiracion" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+</xs:schema>

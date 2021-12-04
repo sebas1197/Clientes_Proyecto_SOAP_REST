@@ -1,0 +1,60 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://espe.edu.ec/arqsoftware/soap/activotarjeta/ws"
+           targetNamespace="http://espe.edu.ec/arqsoftware/soap/activotarjeta/ws" elementFormDefault="qualified">
+
+    <xs:element name="crearTransaccionRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transaccionRQ" type="tns:transaccionRQ" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="crearTransaccionResponse" >
+        <xs:complexType>
+           
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="listarUltimasTransaccionesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codTarjetaCliente" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="listarUltimasTransaccionesResponse" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transaccionRS" type="tns:transaccionRS" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="transaccionRQ">
+        <xs:sequence>
+            <xs:element name="codTarjetaCliente" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="tipo" type="xs:string"/>
+            <xs:element name="meses" type="xs:int"/>
+            <xs:element name="monto" type="xs:decimal" />
+            <xs:element name="interes" type="xs:decimal" />  
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="transaccionRS">
+        <xs:sequence>
+            <xs:element name="codigo" type="xs:int"/>
+            <xs:element name="codigoTarjetaCliente" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+            <xs:element name="tipo" type="xs:string"/>
+            <xs:element name="mes" type="xs:int"/>
+            <xs:element name="monto" type="xs:decimal"/>
+            <xs:element name="interes" type="xs:decimal"/>
+            <xs:element name="fecha" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>
+    
+
